@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+      <xs:element name="Employees">
+            <xs:annotation>
+                  <xs:documentation>Contains All Employee information</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+                  <xs:sequence>
+                        <xs:element name="Employee" maxOccurs="unbounded">
+                              <xs:complexType>
+                                    <xs:sequence>
+                                          <xs:element name="Empno" type="xs:int" />
+                                          <xs:element name="Ename" type="xs:string" />
+                                          <xs:element name="Sal" type="xs:float" />
+                                          <xs:element name="Deptno" type="xs:int" />
+                                    </xs:sequence>
+                              </xs:complexType>
+                        </xs:element>
+                  </xs:sequence>
+            </xs:complexType>
+            <xs:key name="PK_Employee_Empno">
+                  <xs:selector xpath=".//Employee" />
+                  <xs:field xpath="Empno" />
+            </xs:key>
+      </xs:element>
+</xs:schema>
