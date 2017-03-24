@@ -114,7 +114,7 @@ def pg_normalize(string):
 """
 def look4element(ns, el, parent=None, recurse_level=0, fail=False, normalize=True):
     if recurse_level > MAX_RECURSE_LEVEL: raise MaxRecursion()
-    cols = None
+    cols = ''
     children = False
     sql = ''
     for x in el.findall(ns + 'element'):
@@ -141,8 +141,6 @@ def look4element(ns, el, parent=None, recurse_level=0, fail=False, normalize=Tru
                     cols = "%s %s" % (colName, pgType)
                 else:
                     cols += ", %s %s" % (colName, pgType)
-            cols += ''
-        
             
     if cols:
         sql += """CREATE TABLE %s (%s);""" % (parent, cols)
