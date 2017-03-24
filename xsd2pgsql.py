@@ -254,7 +254,7 @@ if __name__ == '__main__':
             """
             xsd = etree.parse(f)
             
-            # glean out defined tyeps
+            # glean out defined types
             buildTypes(XMLS, xsd)
             
             # parse structure
